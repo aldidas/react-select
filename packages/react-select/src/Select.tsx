@@ -1715,6 +1715,7 @@ export default class Select<
       'aria-autocomplete': 'list' as const,
       'aria-expanded': menuIsOpen,
       'aria-haspopup': true,
+      'aria-controle': this.getElementId('listbox'),
       'aria-errormessage': this.props['aria-errormessage'],
       'aria-invalid': this.props['aria-invalid'],
       'aria-label': this.props['aria-label'],
@@ -1724,10 +1725,6 @@ export default class Select<
       'aria-activedescendant': this.isAppleDevice
         ? undefined
         : this.state.focusedOptionId || '',
-
-      ...(menuIsOpen && {
-        'aria-controls': this.getElementId('listbox'),
-      }),
       ...(!isSearchable && {
         'aria-readonly': true,
       }),
